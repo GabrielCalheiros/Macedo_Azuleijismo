@@ -267,100 +267,6 @@
             animation: fadeInUp 1.2s ease forwards;
         }
 
-        /* --- Before/After Slider --- */
-        .slider-section {
-            padding: var(--section-padding);
-            background: #0F0F0F;
-        }
-
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            border: 1px solid var(--glass-border);
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .slider-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .img-before {
-            z-index: 1;
-        }
-
-        .img-after {
-            z-index: 2;
-            width: 50%;
-            border-right: 2px solid var(--primary);
-        }
-
-        .slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            bottom: 0;
-            width: 4px;
-            background: var(--primary);
-            z-index: 3;
-            transform: translateX(-50%);
-            cursor: ew-resize;
-            pointer-events: none;
-        }
-
-        .slider-handle::after {
-            content: '\f2d7';
-            font-family: "bootstrap-icons";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-size: 1.2rem;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .slider-label {
-            position: absolute;
-            bottom: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono';
-            text-transform: uppercase;
-            z-index: 4;
-            backdrop-filter: blur(5px);
-        }
-
-        .label-before {
-            right: 20px;
-        }
-
-        .label-after {
-            left: 20px;
-        }
-
-        .slider-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 5;
-            cursor: ew-resize;
-        }
 
         /* --- Gallery --- */
         .gallery {
@@ -716,9 +622,6 @@
                 font-size: 3.5rem;
             }
 
-            .slider-container {
-                height: 400px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -815,26 +718,8 @@
         </div>
     </header>
 
-    <section class="slider-section reveal" id="trabalhos">
-        <div class="container">
-            <div class="section-header">
-                <span class="mono">Impacto Visual</span>
-                <h2>Transformação em Detalhes</h2>
-            </div>
 
-            <div class="slider-container">
-                <div class="slider-img img-before" style="background-image: url('assets/img/bg-showcase-1.jpg');"></div>
-                <div class="slider-img img-after"
-                    style="background-image: url('assets/img/works/bathroom_1350x1013.webp');" id="sliderAfter"></div>
-                <div class="slider-handle" id="sliderHandle"></div>
-                <div class="slider-label label-before">Estado Original</div>
-                <div class="slider-label label-after">Acabamento Macedo</div>
-                <div class="slider-overlay" id="sliderOverlay"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery reveal">
+    <section class="gallery reveal" id="trabalhos">
         <div class="container">
             <div class="gallery-grid">
                 <div class="gallery-item">
@@ -904,7 +789,7 @@
     <section class="trust reveal">
         <div class="container trust-content">
             <div class="trust-image">
-                <img src="assets/img/bg-showcase-2.jpg" alt="Trabalho de qualidade">
+                <img src="assets/img/works/bathroom_1350x1013.webp" alt="Trabalho de qualidade">
             </div>
             <div class="trust-info">
                 <div class="section-header" style="text-align: left; margin-bottom: 40px;">
@@ -1003,8 +888,8 @@
             <div class="footer-col">
                 <h4>Contato</h4>
                 <ul>
-                    <li><i class="bi bi-geo-alt"></i> São Paulo, SP</li>
-                    <li><i class="bi bi-telephone"></i> (11) 99999-9999</li>
+                    <li><i class="bi bi-geo-alt"></i> Maringá - PR</li>
+                    <li><i class="bi bi-telephone"></i> (44) 99999-9999</li>
                     <li><i class="bi bi-envelope"></i> contato@macedo.com.br</li>
                 </ul>
             </div>
@@ -1018,7 +903,7 @@
             </div>
         </div>
         <div class="copyright">
-            &copy; 2024 MACEDO ACABAMENTOS. DESIGN & ENGENHARIA DE REVESTIMENTOS.
+            &copy; 2026 MACEDO ACABAMENTOS.
         </div>
     </footer>
 
@@ -1033,25 +918,6 @@
             }
         });
 
-        // Before/After Slider Logic
-        const sliderOverlay = document.getElementById('sliderOverlay');
-        const sliderAfter = document.getElementById('sliderAfter');
-        const sliderHandle = document.getElementById('sliderHandle');
-
-        const moveSlider = (e) => {
-            const rect = sliderOverlay.getBoundingClientRect();
-            let x = (e.pageX || e.touches[0].pageX) - rect.left - window.scrollX;
-
-            if (x < 0) x = 0;
-            if (x > rect.width) x = rect.width;
-
-            const percentage = (x / rect.width) * 100;
-            sliderAfter.style.width = percentage + '%';
-            sliderHandle.style.left = percentage + '%';
-        };
-
-        sliderOverlay.addEventListener('mousemove', moveSlider);
-        sliderOverlay.addEventListener('touchmove', moveSlider);
 
         // Reveal Animations on Scroll
         const reveals = document.querySelectorAll('.reveal');
