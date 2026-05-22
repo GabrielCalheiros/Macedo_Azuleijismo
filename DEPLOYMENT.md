@@ -68,3 +68,5 @@ Um site sem tráfego é como uma loja de luxo no meio do deserto.
 ---
 
 **Dica de Ouro:** O mercado de acabamentos é visual. Invista em fotos de boa qualidade (boa iluminação e lentes limpas) para o site. A qualidade da foto dita a percepção do valor da sua mão de obra.
+
+
